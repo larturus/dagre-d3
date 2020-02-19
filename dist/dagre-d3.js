@@ -1241,7 +1241,7 @@ function applyTransition(selection, g) {
 }
 
 },{"./lodash":21}],28:[function(require,module,exports){
-module.exports = "0.6.4";
+module.exports = "0.6.5-pre";
 
 },{}],29:[function(require,module,exports){
 // https://d3js.org/d3-array/ v1.2.4 Copyright 2018 Mike Bostock
@@ -21831,17 +21831,7 @@ function order(g) {
   var bestCC = Number.POSITIVE_INFINITY,
     best;
 
-  for (var i = 0, lastBest = 0; lastBest < 4; ++i, ++lastBest) {
-    sweepLayerGraphs(i % 2 ? downLayerGraphs : upLayerGraphs, i % 4 >= 2);
-
-    layering = util.buildLayerMatrix(g);
-    var cc = crossCount(g, layering);
-    if (cc < bestCC) {
-      lastBest = 0;
-      best = _.cloneDeep(layering);
-      bestCC = cc;
-    }
-  }
+  best = _.cloneDeep(util.buildLayerMatrix(g));
 
   assignOrder(g, best);
 }
@@ -23397,7 +23387,7 @@ function notime(name, fn) {
 }
 
 },{"./graphlib":67,"./lodash":70}],90:[function(require,module,exports){
-module.exports = "0.8.5";
+module.exports = "0.8.6-pre";
 
 },{}],91:[function(require,module,exports){
 /**
